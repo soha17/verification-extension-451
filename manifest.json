@@ -1,0 +1,15 @@
+{ 
+    "manifest_version": 3, 
+    "version": "1.0", 
+    "name": "Verifier!",
+    "description": "Chrome extension Tutorial",
+    "icons":{
+        "16": "images/verifier_logo_nobg.png", 
+        "48": "images/verifier_logo_nobg.png",
+        "128": "images/verifier_logo_nobg.png"
+    },
+    "action":{
+        "default_icon": "images/verifier_logo_nobg.png",
+        "default_popup": "dropdown.html"
+    }
+}
