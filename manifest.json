@@ -1,0 +1,26 @@
+{
+  "name": "uni-verify",
+  "description": "A browser extension that verifies a user’s identity and upon successful verification, sends a signal to websites (data brokers) to bypass their tedious verification process that is required for the user to exercise their CCPA rights.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+  "*://*/*"
+  ],
+  "action": {
+    "default_title": "uni-verify",
+    "default_popup": "popup.html",
+    "default_icon": "uni-verify-logo.png"
+  },
+  "content_scripts":
+  [
+    {
+    "matches": ["<all_urls>"],
+    "all_frames": true,
+    "js": ["jquery-3.6.0.js", "verification_script.js"],
+    "run_at": "document_end"
+    }
+  ]
+}
