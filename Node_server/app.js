@@ -1,5 +1,6 @@
 const http = require('http'); // Import Node.js core module
 const url = require('url');
+const fs = require('fs');
 var qs = require('querystring');
 var server = http.createServer(function (req, res) {   //create web server
   console.log(req.url);
@@ -43,10 +44,19 @@ var server = http.createServer(function (req, res) {   //create web server
 
       if(req.url == "/privacyPolicy") {
           console.log('in privacy policy');
-          res.writeHead(200, { 'Content-Type': 'text/html' });
-          res.write('<html><body><p> A Good Privacy policy</p></body></html>');
+            fs.readFile('Desktop/verification-extension-451-main/privacypolicy.html', function(error, text){   // Add path for it or we can copy paste the full policy here
+              if(error){
+                res.writeHead(404)
+                res.write('<html><body><p> Error</p></body></html>')
+
+              }
+              else{
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.write(text);
+              }
+            });
           res.end();
-        }
+    }
     }
 });
 
