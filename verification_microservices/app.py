@@ -1,5 +1,6 @@
 # Citing https://code.visualstudio.com/docs/python/tutorial-flask as big help for this 
 # add in john patel
+# jp
 from flask import Flask
 import json
 
@@ -29,7 +30,7 @@ def initial_verification(first_name, last_name, id_number):
 @app.route("/current-verification-status/<username>/")
 def current_verification(username):
     # userdb in this case represents our own internal user DB - assuming account 
-    userDB = ['{ "first_name":"John", "last_name":"Wick", "username":"jwick", "id_number":"123456789-005", "verified":"1", "valid":"0" }']
+    userDB = ['{ "first_name":"John", "last_name":"Wick", "username":"jwick", "id_number":"123456789-005", "verified":"1", "valid":"1" }']
     for i in userDB:
         curr = json.loads(i)
         # print(curr["id_number"])
