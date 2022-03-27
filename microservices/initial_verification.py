@@ -1,5 +1,6 @@
 """ Since we don't have a database set up, we're gonna pretend like everything we need is going to come to us in json and we'll export what we need in json """
 import json
+from tabnanny import check
 
 # ty w3 schools u a homie 
 # Source: https://www.w3schools.com/python/python_json.asp
@@ -24,3 +25,12 @@ def checking_cali_database(user_example):
                 return True
     # no record found for this ID in the california database... imposter! 
     return False
+
+userpy = json.loads(user)
+if checking_cali_database(user):
+    userpy["verification"] = True
+else:
+    userpy["verification"] = False
+
+user = json.dumps(userpy)
+print(user)
