@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Form</title>
+    <title>Uni-verify</title>
     <link rel="stylesheet" type="text/css" href="css/loginForm.css">
 </head>
 <body>
-    <h2>Login</h2><br>
+    <h2>Univerify</h2><br>
     <div class="login">
       <form id="login">
+        <h3> Login </h3>
           <label><b>User Name
           </b>
           </label>
@@ -24,9 +25,17 @@
           <br><br>
           <a href="http://localhost:3000/resetPassword">Forgot Password</a>
           <br><br>
-          <!-- <input type="button" name="register" id="register" value="Register">
-          <script src="registerButton.js"> </script> -->
       </form>
+      <div class="verification">
+        <input type="button" name="verify" id="verify" value="verify" >
+        <script src="jquery-3.6.0.js"></script>
+        <script src="verifyButton.js"> </script>
+    </div>
+    <div class="logout">
+      <input type="button" name="logout" id="logout" value="logout" >
+      <script src="jquery-3.6.0.js"></script>
+      <script src="logout.js"> </script>
+  </div>
     </div>
     <div class="register">
         <a href="http://localhost:3000/register">Register</a> </div>

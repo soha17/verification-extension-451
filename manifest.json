@@ -14,6 +14,12 @@
     "default_popup": "popup.html",
     "default_icon": "uni-verify-logo.png"
   },
+  "web_accessible_resources": [
+    {
+     "resources": [ "uni-verify-logo.png" ],
+     "matches": ["<all_urls>"]
+   }
+],
   "content_scripts":
   [
     {

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body style="text-align:center;">
+
+
+    <h3> Do Not Sell My Personal Information </h3>
+
+    <form action="http://localhost:3003/do-not-sell" id="users"
+                action="#" method="POST" target="_blank">
+
+        First name: <input type="text" name="fname"
+                            placeholder="Enter first name">
+
+        <br><br>
+        Last name: <input type="text" name="lname"
+                            placeholder="Enter last name">
+        <br><br>
+
+        Email address: <input type="text" name="email"
+                            placeholder="Enter email address">
+        <br><br>
+
+        Contact number: <input type="text" name="contact"
+                            placeholder="Enter contact number">
+        <br><br>
+
+        <p> Verify your identity by using <a href="https://google.com"> uni-verify </a> extension.
+          Click on the the 'verify' button in the extension </p>
+          <div class="univerify">
+          <input type="hidden" id= "uni-verify-signal" name="uni-verify-signal" value="0" />
+          </div>
+
+        <input type="submit" value="Submit">
+
+
+    </form>
+
+
+
+</body>
+</html>

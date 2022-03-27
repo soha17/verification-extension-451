@@ -17,13 +17,13 @@ var server = http.createServer(function (req, res) {   //create web server
       req.on('end', function() {
             req.post = qs.parse(body);
             console.log(req.post);
-            //call function here for validating user input 
+            //call function here for validating user input
 
         });
 
 
       res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end();
+        res.end(JSON.stringify({username: req.post.username}));
       }
     }
   else {
