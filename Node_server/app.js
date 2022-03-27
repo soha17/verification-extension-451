@@ -21,9 +21,8 @@ var server = http.createServer(function (req, res) {   //create web server
 
         });
 
-
       res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(JSON.stringify({username: req.post.username}));
+        res.end();
       }
     }
   else {
