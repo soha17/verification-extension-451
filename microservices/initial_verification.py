@@ -9,11 +9,13 @@ from tabnanny import check
 # what our json obj would look like
 user = '{ "first_name":"John", "last_name":"Wick", "identification_number":"123456789-005" }'
 
-# for now, the CA data base is simply... a dictionary
+# for now, the CA data base is simply... a LIST of dictionaries
 users_db = ['{ "first_name":"John", "last_name":"Wick", "identification_number":"123456789-005" }']
 
 # before anyone @s me for this garbage, i'm writing this at 1:30AM
 # also, def could be improved. doing a look up by only the identification number and then checking the other parts would be much better
+# true if currently verified
+# false if not verified
 def checking_cali_database(user_example):
     # parse the user passed in and pass it into the database
     user_py = json.loads(user_example)
