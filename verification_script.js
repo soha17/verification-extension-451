@@ -4,7 +4,10 @@ chrome.runtime.onMessage.addListener(
     console.log(sender.tab ?
                 "from a content script:" + sender.tab.url :
                 "from the extension");
-    if (request.greeting === 1) {
+    console.log(request.greeting.readyState);
+    console.log(JSON.stringify(request.greeting));
+    console.log(JSON.stringify(request.greeting.readyState));
+    if (JSON.stringify(request.greeting.readyState) === "1") {
       if($("#uni-verify-signal").val() !== '1'){
         $("#uni-verify-signal").val('1');
         $(".univerify").append('<div><div id="uni-verify-image"><p> You are uni-verified </p><img src="https://www.freeiconspng.com/uploads/checkmark-png-28.png" id="univerify-img" alt="uni-verify" height="36" width="36" /></div></div>');
