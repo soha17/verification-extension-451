@@ -6,11 +6,12 @@ import json
 # what our json obj would look like at a bare minimum
 user = '{ "first_name":"John", "last_name":"Wick", "identification_number":"123456789-005", "verification": true}'
 
-# for now, the CA data base is simply... a dictionary
+# for now, our user data base is simply... a list of dictionaries
 users_db = ['{ "first_name":"John", "last_name":"Wick", "identification_number":"123456789-005", "expired": true }']
 
 # true if currently verified
 # false if not verified
+# -1 if doesn't exist
 def current_verification_status(user):
     userpy = json.loads(user)
     for i in users_db:
@@ -21,7 +22,7 @@ def current_verification_status(user):
             else:
                 return True
     # otherwise, the ID number doesn't exist in our db
-    return False
+    return -1
 
 # print(user)
 userpy = json.loads(user)
