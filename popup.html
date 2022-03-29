@@ -5,8 +5,13 @@
     <link rel="stylesheet" type="text/css" href="css/loginForm.css">
 </head>
 <body>
-    <h2>Univerify</h2><br>
-    <div class="login">
+    <div id="logo">
+     <img src="uni-verify-logo-icon.png" />
+    </div> <br>
+    <br>
+    <!-- <div class="logTitle" ><h2>Univerify</h2></div> -->
+    
+    <div class="login" id="loginDiv">
       <form id="login" name='login'>
         <h3> Login </h3>
           <label><b>User Name
@@ -27,28 +32,35 @@
           <a href="http://localhost:3000/resetPassword">Forgot Password</a>
           <br><br>
       </form>
-      <div class="verification">
-        <input type="button" name="verify" id="verify" value="verify" >
-        <script src="jquery-3.6.0.js"></script>
-        <script src="verifyButton.js"> </script>
-    </div>
-    <div class="logout">
-      <input type="button" name="logout" id="logout" value="logout" >
-      <script src="jquery-3.6.0.js"></script>
-      <script src="logout.js"> </script>
-  </div>
-    </div>
-    <div class="register">
-      <input type="button" name="register" id="registerLink" value="Register">
-      <script src="jquery-3.6.0.js"></script>
-      <script src="register.js"> </script>
+      <div class="welcome" id="welcome">
       </div>
+      <div class="menu-container">
+        <div class="button-container">
+           
+          <div class="verification">
+            <input type="button" name="verify" id="verify" value="Verify" style="float: right;">
+            <script src="jquery-3.6.0.js"></script>
+            <script src="verifyButton.js"> </script>
+          </div>
+          <div class="logout">
+            <input type="button" name="logout" id="logout" value="Logout" >
+            <script src="jquery-3.6.0.js"></script>
+            <script src="logout.js"> </script>
+          </div>
+          <div class="register">
+            <input type="button" name="register" id="registerLink" value="Register" style="float: right;">
+            <script src="jquery-3.6.0.js"></script>
+            <script src="register.js"> </script>
+          </div>
 
-    <div class ="privacy_policy">
-      <input type="button" name="privacy" id="PrivacyLink" value="Privacy Policy">
-      <script src="jquery-3.6.0.js"></script>
-      <script src="privacy.js"></script>
-    </div>
-
+          <div class ="privacy_policy">
+            <input type="button" name="privacy" id="PrivacyLink" value="Privacy Policy">
+            <script src="jquery-3.6.0.js"></script>
+            <script src="privacy.js"></script>
+          </div>
+        </div>
+      </div>
 </body>
 </html>
+
+<!-- https://stackoverflow.com/questions/20849221/position-buttons-in-container-as-a-grid-using-css => Reference -->

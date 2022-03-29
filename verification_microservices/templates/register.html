@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uni-Verify Registration</title>
+    <!-- <link rel="stylesheet"  type="text/css"  href="./register.css"> -->
+    <style>body {
+        /* background-image: url("./images/bg-1.png"); */
+        background-image: url("http://drive.google.com/uc?export=view&id=1RB5G35-5gHokOPnOapdEv9AWZUBqTPo1");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: 30px;
+      }
+      
+      .univerifylogo {
+        width: 70;
+        height: 70;
+        opacity: 0.5;
+      }
+      
+      .titlediv {
+        margin-left: 450px;
+        margin-right: 450px;
+        height: 80px;
+        padding-top: 5px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        padding-left: 30px;
+        text-align: center;
+        color: rgb(0, 0, 0);
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #0a3731;
+        color: rgb(203, 223, 214);
+      }
+      
+      .grid {
+        margin: 30px 200px;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 40px;
+        background-image: url("http://drive.google.com/uc?export=view&id=1ETrICynYr6x8SAcSxiTbCr5kp5NpRglw");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding: 40px 50px 40px 50px;
+        border: rgb(0, 0, 0);
+      }
+      
+      .about {
+        background-color: #0a3731;
+        text-align: center;
+        padding: 20px 30px;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(216, 224, 212);
+      }
+      
+      .regform {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 10px 20px;
+        background-color: #0a3731;
+        color: rgb(216, 224, 212);
+      }
+      
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 8px 15px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid rgb(167, 156, 156);
+        border-radius: 4px;
+        box-sizing: border-box;
+        text-align: left;
+      }
+      </style>
+</head>
+<body>
+        <div class="titlediv" name="title" id="title">
+            <h2>
+                <b>Welcome to Uni-Verify</b>
+            </h2>
+            <h4>Log in to your account using email and password</h4>
+        </div>
+      
+      <div class="grid">
+        <div class="about">
+            <h3 text-align="center">About Us</h3>
+            <p text-align="center"> 
+                Since CCPA has gone into effect, data brokers have gained a lot of attention. 
+                They are being scrutinized for using loopholes that make it harder for users to exercise their rights.
+                Our browser extension provides users with a a standardized verification process, 
+                so they don’t have to go through the verification process every time they attempt to exercise their CCPA rights.
+                After verifying their identity with the browser extension, when the user submits an online request to a data broker, 
+                the user is no longer required to manually provide information for verification. 
+                Instead, the extension will inform the website that this user’s identity has already been verified. 
+                This will make it easier for users to exercise their CCPA rights as they will be able to bypass 
+                the verification process for data brokers and other technologies that request this information.
+            </p>
+        </div>
+        <div class="regform">
+            <form method="POST" action="/register" enctype = "multipart/form-data">
+                <label for="fname">User Name *</label>
+                <input type="text" id="username" name="username" placeholder="User Name" required >
+                <br/><br/>
+                <label for="fname">First Name *</label>
+                <input type="text" id="fname" name="fname" placeholder="First Name" required >
+                <br/><br/>
+                <label for="lname">Last Name *</label>
+                <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+                <br/><br/>
+                <label for="sid">California State ID or Driver's License *</label>
+                <input type="text" id="dl_no" name="dl_no" placeholder="State ID" required>
+                <br/><br/>
+                <label for="date">State ID Expiry Date *</label>
+                <input type="date" id="expdate" name="expdate" placeholder="Expiry Date" required>
+                <br/><br/>
+                <label for="contact">Contact Information *</label> 
+                <input type="text" id="contact_no" name="contact_no" placeholder="Mobile Number" required>
+                <br/><br/>
+                <label for="pwd">Password *</label>
+                <input type="password" id="pwd" name="pwd" placeholder="Password" required>
+                <br/><br/>
+                <input type='submit' class="regsubmit" value='Register'/>
+                <!-- <script src="jquery-3.6.0.js"></script>
+                <script src="../../register.js"> </script> -->
+            </form>
+        </div>
+      </div>
+
+</body>
+</html>
+
+<!-- 
+  References:
+  https://stackoverflow.com/questions/67217016/method-not-allowed-405-error-in-flask-api
+  https://stackoverflow.com/questions/14105452/what-is-the-cause-of-the-bad-request-error-when-submitting-form-in-flask-applica
+  https://www.digitalocean.com/community/tutorials/processing-incoming-request-data-in-flask
+  https://www.makeuseof.com/tag/python-javascript-communicate-json/
+
+ -->
