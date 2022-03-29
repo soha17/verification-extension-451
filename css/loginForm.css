@@ -1,0 +1,48 @@
+html {
+  width: 200px;
+  height: 300px;
+}
+
+body {
+  background-color: #a0cf8b;
+  width: 200px;
+  height: 300px;
+}
+
+.logTitle {
+  color: #0a3731;
+}
+
+#logo {
+  position: relative;
+}
+#logo img {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 80px;
+  width: 80px;
+}
+
+.button-container {
+  padding: 10px;
+  margin-left: 0.5px;
+  margin-right: 7px;
+}
+
+/* #verify,
+#login {
+  display: inline-block;
+}
+
+#register,
+#privacy_policy {
+  display: inline-block;
+} */
+
+/* 
+CSS Code reference:
+https://www.codegrepper.com/code-examples/css/css+top+right+corner  
+https://www.codegrepper.com/code-examples/html/button+align+left+html
+
+*/

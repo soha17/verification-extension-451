@@ -1,4 +1,5 @@
 const http = require('http'); // Import Node.js core module
+const fs = require('fs'); // to read a file
 const url = require('url');
 var qs = require('querystring');
 var server = http.createServer(function (req, res) {   //create web server
@@ -30,7 +31,8 @@ var server = http.createServer(function (req, res) {   //create web server
     if(req.url == "/register") {
         console.log('in register');
         res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write('<html><body><p> Some registration form</p></body></html>');
+        var html = fs.readFileSync('./../verification_microservices/templates/register.html');
+        res.write(html);
         res.end();
       }
 
