@@ -7,7 +7,7 @@ $(document).ready(function () {
           //let verificationSiganl = "0"; // api call and store the response in this.
           let verificationSiganl = $.get("http://127.0.0.1:5000/current-verification-status/jwick/", function(verificationStatus){
               verificationSiganl = JSON.stringify(verificationStatus);
-              alert(verificationSiganl);
+              // alert(verificationSiganl);
               return verificationSiganl
           });
           chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {

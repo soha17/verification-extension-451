@@ -57,62 +57,56 @@ def register():
             if status == "1":
                 print('Status: ' + status + ' User, ' + username + 
                       ' with name, ' + fname + ' ' + lname + ' is a valid CA resident!')
-                return redirect(url_for('register'))
+                # return redirect(url_for('register'))
+                return '<script>window.alert("Congratulations! You are registered with Uni-Verify")</script>'
 
             elif status == "0":
                 print('Status: ' + status + ' User, ' + username + 
                       ' with name, ' + fname + ' ' + lname + ' is not a valid CA resident!')
-                return render_template('register.html', message="User is not a valid CA resident!") 
+                #return render_template('register.html', message="User is not a valid CA resident!")
+                return '<script>window.alert("Sorry, but we were unable to register you with Uni-verify! Please try again with valid California Resident details")</script>' 
 
             elif status == "-1":
                 print('Status: ' + status + ' User, ' + username + 
                       ' with name, ' + fname + ' ' + lname + ' is not a valid CA resident!')
-                return render_template('register.html', message="User not a valid CA resident!") 
+                # return render_template('register.html', message="User not a valid CA resident!") 
+                return '<script>window.alert("Sorry, but we were unable to register you with Uni-verify! Please try again with a valid California State ID")</script>' 
 
         except: # If TTL is needed, its logic would be implemented here
             print('User Already Exists!')
-            return render_template('register.html', message="User Already Exists!")
+            #return render_template('register.html', message="User Already Exists!")
 
     else:
         print('Not a POST Request flow!')
         return render_template('register.html')
 
-
+#for future enhancements 
 @app.route('/extensionLogin/', methods=['GET', 'POST'])
 def extensionLogin():
-    userDB = ['{ "username":"jwick", "password":"theFirstOne" }']
+    userDB = ['{ "username":"jwick", "password":"theFirstOne25" }']
 
     if request.method == 'POST':
         try:
             username = request.form['username']
             password = request.form['password']
 
-            status = current_verification(username)
-
             for i in userDB:
                 curr = json.loads(i)
-                if password == curr["password"] and status == "1":
+                if password == curr["password"] :
                     status = "1"
-                elif password == curr["password"] and status != "1":
-                    status = "0"
                 else:
                     status = "-1"
 
             if status == "1":
                 print('Status: ' + status + ' User, ' + username + ' is a valid verified CA resident!')
-                return redirect(url_for('register'))
             
             elif status == "-1":
                 print('Status: ' + status + ' User, ' + username + ' is not a verified CA resident!')
-                return render_template('register.html', message="User not a verified CA resident!") 
 
             else:
                 print('Status: ' + status + ' User, ' + username + ' is not registered with Uni-Verify!')
-                return render_template('register.html', message="User is not registered with Uni-Verify!")
 
         except: # If TTL is needed, its logic would be implemented here
             print('ERROR! CHECK THE MESSAGE')
-            return render_template('register.html', message="ERROR! CHECK THE MESSAGE!")
     else:
         print('Not a POST Request flow!')
-        return render_template('register.html')

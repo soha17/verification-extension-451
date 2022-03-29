@@ -1,5 +1,6 @@
 function hideform() {
   document.getElementById("login").style.display = 'none';
+  $("#welcome").append('<div><br><br><h2>Welcome you are logged in!!</h2></div>');
 }
 
 $(document).ready(function () {
