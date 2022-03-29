@@ -1,6 +1,7 @@
 # Citing https://code.visualstudio.com/docs/python/tutorial-flask as big help for this 
 # add in john patel
 # jp
+from crypt import methods
 from flask import Flask, url_for, render_template, request, redirect, session
 import json
 import pandas as pd
@@ -41,39 +42,77 @@ def current_verification(username):
             return curr["valid"]
     return "-1"
 
-def check_valid(user):
-    df = pd.read_csv("dummydb_3rdpartygovt.csv")
-    dl_no_list = df["DL number"].tolist()
-    first_name_list = df["First Name"].tolist()
-    last_name_list = df["Last Name"].tolist()
-    if user.dl_no in dl_no_list and user.fname in first_name_list and user.lname in last_name_list:
-        return 1
-    else:
-        return 0
-
 # from rakshit's python code
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         try:
-            username=request.form['username']
-            dl_no=request.form['dl_no']
-            fname=request.form['fname']
-            lname=request.form['lname']
-            contact_no=request.form['contact_no']
+            username = request.form['username']
+            fname = request.form['fname']
+            lname = request.form['lname']
+            dl_no = request.form['dl_no']
 
-            print(username)
+            status = initial_verification(fname, lname, dl_no)
 
-            status = check_valid(user) 
+            if status == "1":
+                print('Status: ' + status + ' User, ' + username + 
+                      ' with name, ' + fname + ' ' + lname + ' is a valid CA resident!')
+                return redirect(url_for('register'))
 
-            if status == 1:
-                return redirect(url_for('login'))
-            else:
-                return render_template('register.html', message="User not valid CA resident!") 
+            elif status == "0":
+                print('Status: ' + status + ' User, ' + username + 
+                      ' with name, ' + fname + ' ' + lname + ' is not a valid CA resident!')
+                return render_template('register.html', message="User is not a valid CA resident!") 
+
+            elif status == "-1":
+                print('Status: ' + status + ' User, ' + username + 
+                      ' with name, ' + fname + ' ' + lname + ' is not a valid CA resident!')
+                return render_template('register.html', message="User not a valid CA resident!") 
+
         except: # If TTL is needed, its logic would be implemented here
+            print('User Already Exists!')
             return render_template('register.html', message="User Already Exists!")
-        # else:
-        #     return render_template('index.html', message="User Not Valid CA resident!")
 
     else:
+        print('Not a POST Request flow!')
+        return render_template('register.html')
+
+
+@app.route('/extensionLogin/', methods=['GET', 'POST'])
+def extensionLogin():
+    userDB = ['{ "username":"jwick", "password":"theFirstOne" }']
+
+    if request.method == 'POST':
+        try:
+            username = request.form['username']
+            password = request.form['password']
+
+            status = current_verification(username)
+
+            for i in userDB:
+                curr = json.loads(i)
+                if password == curr["password"] and status == "1":
+                    status = "1"
+                elif password == curr["password"] and status != "1":
+                    status = "0"
+                else:
+                    status = "-1"
+
+            if status == "1":
+                print('Status: ' + status + ' User, ' + username + ' is a valid verified CA resident!')
+                return redirect(url_for('register'))
+            
+            elif status == "-1":
+                print('Status: ' + status + ' User, ' + username + ' is not a verified CA resident!')
+                return render_template('register.html', message="User not a verified CA resident!") 
+
+            else:
+                print('Status: ' + status + ' User, ' + username + ' is not registered with Uni-Verify!')
+                return render_template('register.html', message="User is not registered with Uni-Verify!")
+
+        except: # If TTL is needed, its logic would be implemented here
+            print('ERROR! CHECK THE MESSAGE')
+            return render_template('register.html', message="ERROR! CHECK THE MESSAGE!")
+    else:
+        print('Not a POST Request flow!')
         return render_template('register.html')

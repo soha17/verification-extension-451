@@ -89,16 +89,19 @@
         <div class="about">
             <h3 text-align="center">About Us</h3>
             <p text-align="center"> 
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                It was popularized in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                Since CCPA has gone into effect, data brokers have gained a lot of attention. 
+                They are being scrutinized for using loopholes that make it harder for users to exercise their rights.
+                Our browser extension provides users with a a standardized verification process, 
+                so they don’t have to go through the verification process every time they attempt to exercise their CCPA rights.
+                After verifying their identity with the browser extension, when the user submits an online request to a data broker, 
+                the user is no longer required to manually provide information for verification. 
+                Instead, the extension will inform the website that this user’s identity has already been verified. 
+                This will make it easier for users to exercise their CCPA rights as they will be able to bypass 
+                the verification process for data brokers and other technologies that request this information.
             </p>
         </div>
         <div class="regform">
-            <form method="POST" action="/register">
+            <form method="POST" action="/register" enctype = "multipart/form-data">
                 <label for="fname">User Name *</label>
                 <input type="text" id="username" name="username" placeholder="User Name" required >
                 <br/><br/>
@@ -114,16 +117,27 @@
                 <label for="date">State ID Expiry Date *</label>
                 <input type="date" id="expdate" name="expdate" placeholder="Expiry Date" required>
                 <br/><br/>
-                <label for="contact">Contact Information *</label> <!-- Still if deciding if we need to collect this from the users -->
+                <label for="contact">Contact Information *</label> 
                 <input type="text" id="contact_no" name="contact_no" placeholder="Mobile Number" required>
                 <br/><br/>
-                <!-- <label for="pwd">Password *</label>
+                <label for="pwd">Password *</label>
                 <input type="password" id="pwd" name="pwd" placeholder="Password" required>
-                <br/><br/> -->
-                <button class="regsubmit" href="{{ url_for('register')}}" >Register</button>
+                <br/><br/>
+                <input type='submit' class="regsubmit" value='Register'/>
+                <!-- <script src="jquery-3.6.0.js"></script>
+                <script src="../../register.js"> </script> -->
             </form>
         </div>
       </div>
 
 </body>
 </html>
+
+<!-- 
+  References:
+  https://stackoverflow.com/questions/67217016/method-not-allowed-405-error-in-flask-api
+  https://stackoverflow.com/questions/14105452/what-is-the-cause-of-the-bad-request-error-when-submitting-form-in-flask-applica
+  https://www.digitalocean.com/community/tutorials/processing-incoming-request-data-in-flask
+  https://www.makeuseof.com/tag/python-javascript-communicate-json/
+
+ -->
