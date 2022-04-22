@@ -11,13 +11,13 @@ $(document).ready(function () {
 
           var otp_veri = document.getElementById("otp").value;
           if(otp_veri==""){
-            var url = "https://api.twilio.com/2010-04-01/Accounts/ACabf6358c3e7fd3c8d33b856fe467bd5f/Messages";
+            var url = "https://api.twilio.com/2010-04-01/Accounts/ADD ACCOUNT SID HERE/Messages";
 
             var xhr = new XMLHttpRequest();
             xhr.open("POST", url);
 
             xhr.setRequestHeader("Accept", "application/json");
-            xhr.setRequestHeader("Authorization", "Basic " + btoa("ACabf6358c3e7fd3c8d33b856fe467bd5f:9ac66c87cd6fd7794a9779d364c427b8"));
+            xhr.setRequestHeader("Authorization", "Basic " + btoa("ADD ACCOUNT SID HERE:ADD AUTH TOKEN HERE"));
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
             xhr.send("Body=Welcome to Uni-Verify! Your OTP is 451154&To=+14127421854&From=+19377447376");
             xhr.onreadystatechange = function () {
