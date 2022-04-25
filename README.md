@@ -77,7 +77,7 @@ This service lets you  access the extension’s registration and privacy policy 
 Note: "uni-verify-signal" field set to 0, indicates that the user is not registered with uni-verify services and the data broker should use other means to verify this user. 
 
 <h2> Current work in progress </h2> 
-1. Currently we are in the middle of implementing 2FA using Twillio. The code for this can be found at: <> <br> 
+1. Currently we are in the middle of implementing 2FA using Twillio. The code for this can be found at: https://github.com/soha17/verification-extension-451/pull/11 <br> 
 
 In order to run this code and test 2FA capabilities, you will have to register with Twillio at this link: https://www.twilio.com/try-twilio <br> 
 Upon registration take a note of the following informtion: <br> 
