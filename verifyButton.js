@@ -11,15 +11,16 @@ $(document).ready(function () {
 
           var otp_veri = document.getElementById("otp").value;
           if(otp_veri==""){
-            var url = "https://api.twilio.com/2010-04-01/Accounts/ADD ACCOUNT SID HERE/Messages";
+            var url = "https://api.twilio.com/2010-04-01/Accounts/<ACCOUNT_SID>/Messages";
 
             var xhr = new XMLHttpRequest();
             xhr.open("POST", url);
 
             xhr.setRequestHeader("Accept", "application/json");
-            xhr.setRequestHeader("Authorization", "Basic " + btoa("ADD ACCOUNT SID HERE:ADD AUTH TOKEN HERE"));
+            xhr.setRequestHeader("Authorization", "Basic " + btoa("<ACCOUNT_SID>:<ACCOUNT_TOKEN>"));
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-            xhr.send("Body=Welcome to Uni-Verify! Your OTP is 451154&To=+14127421854&From=+19377447376");
+            xhr.send("Body=Welcome to Uni-Verify! Your OTP is 451154&To=<RECEIVER’S_REGISTERED_PHONE_NUMBER>&From=<SENDER’S_TWILIO_PHONE_NUMBER>
+");
             xhr.onreadystatechange = function () {
                  if (xhr.readyState === 4) {
                    console.log(xhr.status);
