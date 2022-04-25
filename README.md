@@ -79,17 +79,24 @@ Note: "uni-verify-signal" field set to 0, indicates that the user is not registe
 <h2> Current work in progress </h2> 
 1. Currently we are in the middle of implementing 2FA using Twillio. The code for this can be found at: <> <br> 
 
-In order to run this code and test 2FA capabilities, you will have to register with Twillio, the steps to that are bellow: <br> 
+In order to run this code and test 2FA capabilities, you will have to register with Twillio at this link: https://www.twilio.com/try-twilio <br> 
+Upon registration take a note of the following informtion: <br> 
+ACCOUNT_SID  <br> 
+ACCOUNT_TOKEN <br>
+RECEIVER’S_REGISTERED_PHONE_NUMBER <br> 
+SENDER’S_TWILIO_PHONE_NUMBER <br> 
 
-steps
   
 <br> 
   
   
 After you have registered an account with Twillio you will have to slightly modify the code as follows: <br> 
-  
- steps
- 
+ Open the code with your preferred editor and go to file "verifyButton.js". In there modify the code to replace the following details with the corresponding information from your new Twilio account: <br> 
+at line 14 and 20: ACCOUNT_SID  <br> 
+at line 20: ACCOUNT_TOKEN <br>
+at line 22: RECEIVER’S_REGISTERED_PHONE_NUMBER <br> 
+at line 22: SENDER’S_TWILIO_PHONE_NUMBER <br> 
+
 <br> 
 
 Now follow all the steps under section "Install and run survices" to run all the services. <br> 
